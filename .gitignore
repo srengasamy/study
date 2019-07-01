@@ -1,6 +1,6 @@
-
 .gitignore
 .gradle/
+*.iml
 build.gradle
 gradle/
 gradlew
@@ -9,3 +9,5 @@ out/
 settings.gradle
 src/main/java/com/study/queue/
 /.idea/
+# Project exclude paths
+/target/
