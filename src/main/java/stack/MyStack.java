@@ -1,7 +1,6 @@
 package stack;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class MyStack {
   Queue<Integer> left = new LinkedList<>();
@@ -28,13 +27,14 @@ public class MyStack {
    */
   public int pop() {
     while (left.size() > 1) {
-      right.offer(left.poll());
+      top = left.poll();
+      right.offer(top);
     }
-    int top = left.poll();
+    int res = left.poll();
     Queue<Integer> temp = left;
     left = right;
     right = temp;
-    return top;
+    return res;
   }
 
   /**
@@ -53,11 +53,9 @@ public class MyStack {
 
   public static void main(String[] args) {
     MyStack stack = new MyStack();
-
     stack.push(1);
     stack.push(2);
     System.out.println(stack.top());   // returns 2
-    stack.push(3);
     System.out.println(stack.pop());   // returns 2
   }
 }

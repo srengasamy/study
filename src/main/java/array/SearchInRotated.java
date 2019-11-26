@@ -2,7 +2,7 @@ package array;
 
 public class SearchInRotated {
   public static void main(String[] args) {
-    System.out.println(new SearchInRotated().search(new int[]{4, 5, 6, 7, 0, 1, 2}, 10));
+    System.out.println(new SearchInRotated().search(new int[]{4,5,6,7,0,1,2}, 3));
   }
 
   public int search(int[] nums, int target) {
@@ -17,13 +17,13 @@ public class SearchInRotated {
       if (nums[mid] == target) {
         return mid;
       }
-      if (nums[lo] < nums[mid]) {
+      if (nums[lo] <= nums[mid]) {
         if (target >= nums[lo] && target < nums[mid]) {
           hi = mid - 1;
         } else {
           lo = mid + 1;
         }
-      } else if (nums[mid] < nums[hi]) {
+      } else if (nums[mid] <= nums[hi]) {
         if (target > nums[mid] && target <= nums[hi]) {
           lo = mid + 1;
         } else {
